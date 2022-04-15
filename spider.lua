@@ -1396,16 +1396,6 @@ local Channel = Redis:get(spider..'spider:Channel:Join')
 if Channel then return LuaTele.sendText(msg_chat_id,msg_id,"\n‹ : الاشتراك الاجباري مفعل على : [@"..Channel..']',"md",true)  
 else
 return LuaTele.sendText(msg_chat_id,msg_id,"\n‹ : لا توجد قناة في الاشتراك ارسل تغيير الاشتراك الاجباري","md",true) end end
-if text == '‹ قناة السورس ›' or text == 'قناه السورس' or text == 'قناة السورس' then
-photo = "https://t.me/DovePhotoo/5"
-local tt =[[
-‹ : [𝖲𝗈𝗎𝗋𝖼𝖾 spider](https://t.me/ivviv) .
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ Source Channel .', url = "https://t.me/ivviv"}},
-}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/ivviv&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == '‹ مبرمج السورس ›' or text == 'علوش' or text == 'علش' or text == 'مطور السورس' or text == 'المبرمج' then
 local tt =[[
 ‹ : [مبرمج السورس](https://t.me/NNUUU) .
@@ -1414,14 +1404,6 @@ keyboard = {}
 keyboard.inline_keyboard = {{{text = '‹ مبرمج السورس .', url = "https://t.me/NNUUU"}},}
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/NNUUU&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
-if text == '‹ تحديثات السورس ›' or text == 'قناة التحديثات' or text == 'تحديثات السورس' then
-local tt =[[
-‹ : [Exp Source](https://t.me/ivviv) .
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ Exp Source .', url = "https://t.me/ivviv"}},}
-local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/ivviv&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == "‹ اسم البوت ›" then
 local NamesBot = (Redis:get(spider.."spider:Name:Bot") or "سبايدر")
 local BotName = {
@@ -1718,7 +1700,7 @@ if Info_Members.members[k].status.luatele == "chatMemberStatusCreator" then
 Redis:sadd(spider.."spider:TheBas:Group"..msg_chat_id,v.member_id.user_id) 
 x = x + 1 end end
 end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ رفع الادمنيه ›', data = msg.sender.user_id..'/addAdmins@'..msg_chat_id},{text = '‹ تفعيل الحمايه ›', data =msg.sender.user_id..'/LockAllGroup@'..msg_chat_id},},{{text = '‹ الاوامر ›', data = msg.sender.user_id..'/'.. 'helpall'},},{{text = '‹ غادر ›', data = msg.sender.user_id..'/Yesbot'},{text = '‹ تعطيل ›', data =msg.sender.user_id..'/disable'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ رفع الادمنيه ›', data = msg.sender.user_id..'/addAdmins@'..msg_chat_id},{text = '‹ تفعيل الحمايه ›', data =msg.sender.user_id..'/LockAllGroup@'..msg_chat_id},},{{text = '‹ الاوامر ›', data = msg.sender.user_id..'/'.. 'helpall'},},{{text = '‹ غادر ›', data = msg.sender.user_id..'/Yesbot'},{text = '‹ تعطيل ›', data =msg.sender.user_id..'/disable'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 if not msg.ControllerBot then
 local UserInfo = LuaTele.getUser(msg.sender.user_id)
 for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
@@ -1781,7 +1763,7 @@ else
 Status = 'العضو'
 end
 LuaTele.sendText(Sudo_Id,0,'\n‹ : تم تفعيل مجموعة جديده ↫ ⤈ \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n‹ : بواسطة ↫ '..LaR..'\n‹ : موقعه في المجموعة ↫ '..Status..'\n‹ : ايدي المجموعة ↫ ⤈\n❨ `'..msg_chat_id..'` ❩\n‹ : رابط المجموعة ↫ ⤈\n❨ '..Info_Chats.invite_link.invite_link..' ❩\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n‹ : الوقت ↫ '..os.date('%I:%M%p')..'\n‹ : التاريخ ↫ '..os.date('%Y/%m/%d')..'',"md",true) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ رفع الادمنيه ›', data = msg.sender.user_id..'/addAdmins@'..msg_chat_id},{text = '‹ تفعيل الحمايه ›', data =msg.sender.user_id..'/LockAllGroup@'..msg_chat_id},},{{text = '‹ الاوامر ›', data = msg.sender.user_id..'/'.. 'helpall'},},{{text = '‹ غادر ›', data = msg.sender.user_id..'/Yesbot'},{text = '‹ تعطيل ›', data =msg.sender.user_id..'/disable'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ رفع الادمنيه ›', data = msg.sender.user_id..'/addAdmins@'..msg_chat_id},{text = '‹ تفعيل الحمايه ›', data =msg.sender.user_id..'/LockAllGroup@'..msg_chat_id},},{{text = '‹ الاوامر ›', data = msg.sender.user_id..'/'.. 'helpall'},},{{text = '‹ غادر ›', data = msg.sender.user_id..'/Yesbot'},{text = '‹ تعطيل ›', data =msg.sender.user_id..'/disable'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 Redis:sadd(spider.."spider:ChekBotAdd",msg_chat_id)
 Redis:set(spider.."spider:Status:BanId"..msg_chat_id,true) ;Redis:set(spider.."spider:Status:SetId"..msg_chat_id,true) 
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,'*‹ : تم تفعيل المجموعة ↫ ‹ *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* ›*').unLock,'md', true, false, false, false, reply_markup) end end
@@ -1802,7 +1784,7 @@ else
 LaR = '['..UserInfo.first_name..'](tg://user?id='..msg.sender.user_id..')'
 end
 LuaTele.sendText(Sudo_Id,0,"‹ : تم تعطيل مجموعة جديده ↫ ⤈ \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n‹ : بواسطة ↫ "..LaR.."\n‹ : اسم المجموعة ↫ "..Get_Chat.title.."\n‹ : ايدي المجموعة ↫ ⤈ \n❨ `"..msg_chat_id.."` ❩\n‹ : رابط المجموعة ↫ ⤈\n❨ "..Info_Chats.invite_link.invite_link.." ❩\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n‹ : الوقت ↫ "..os.date("%I:%M%p").."\n‹ : التاريخ ↫ "..os.date("%Y/%m/%d").."","md",true) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ غادر ›', data = msg.sender.user_id..'/Yesbott'},{text = '‹ تفعيل ›', data =msg.sender.user_id..'/activation'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ غادر ›', data = msg.sender.user_id..'/Yesbott'},{text = '‹ تفعيل ›', data =msg.sender.user_id..'/activation'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 Redis:srem(spider.."spider:ChekBotAdd",msg_chat_id)
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,'*‹ : تم تعطيل المجموعة ↫ ‹ *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* ›*').unLock,'md',true, false, false, false, reply_markup) end end
 if text == ('تعطيل') and LuaTele.getChatMember(msg_chat_id,msg.sender.user_id).status.luatele == "chatMemberStatusCreator" and not msg.Developers or text == ('تعطيل') and LuaTele.getChatMember(msg_chat_id,msg.sender.user_id).status.luatele == "chatMemberStatusAdministrator" and not msg.Developers then
@@ -1822,7 +1804,7 @@ else
 LaR = '['..UserInfo.first_name..'](tg://user?id='..msg.sender.user_id..')'
 end
 LuaTele.sendText(Sudo_Id,0,"‹ : تم تعطيل مجموعة جديده ↫ ⤈ \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n‹ : بواسطة ↫ "..LaR.."\n‹ : اسم المجموعة ↫ "..Get_Chat.title.."\n‹ : ايدي المجموعة ↫ ⤈ \n❨ `"..msg_chat_id.."` ❩\n‹ : رابط المجموعة ↫ ⤈\n❨ "..Info_Chats.invite_link.invite_link.." ❩\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n‹ : الوقت ↫ "..os.date("%I:%M%p").."\n‹ : التاريخ ↫ "..os.date("%Y/%m/%d").."","md",true) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ غادر ›', data = msg.sender.user_id..'/Yesbott'},{text = '‹ تفعيل ›', data =msg.sender.user_id..'/activation'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ غادر ›', data = msg.sender.user_id..'/Yesbott'},{text = '‹ تفعيل ›', data =msg.sender.user_id..'/activation'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 Redis:srem(spider.."spider:ChekBotAdd",msg_chat_id)
 return LuaTele.sendText(msg_chat_id,msg_id,Reply_Status(msg.sender.user_id,'*‹ : تم تعطيل المجموعة ↫ ‹ *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* ›*').unLock,'md',true, false, false, false, reply_markup) end end
 if chat_type(msg.chat_id) == "GroupBot" and Redis:sismember(spider.."spider:ChekBotAdd",msg_chat_id) then
@@ -3935,7 +3917,7 @@ if ChannelJoin(msg) == false then
 local Get_Chat = LuaTele.getChat(Redis:get(spider..'spider:ChanneliD:Join'))
 local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local UserId_Info = LuaTele.searchPublicChat(UserName)
 if not UserId_Info.id then return LuaTele.sendText(msg_chat_id,msg_id,"\n‹ : عذرا لا يوجد حساب بهذا المعرف ","md",true)  end
@@ -3973,7 +3955,7 @@ if ChannelJoin(msg) == false then
 local Get_Chat = LuaTele.getChat(Redis:get(spider..'spider:ChanneliD:Join'))
 local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local UserId_Info = LuaTele.searchPublicChat(UserName)
 if not UserId_Info.id then return LuaTele.sendText(msg_chat_id,msg_id,"\n‹ : عذرا لا يوجد حساب بهذا المعرف ","md",true)  end
@@ -4266,7 +4248,7 @@ if ChannelJoin(msg) == false then
 local Get_Chat = LuaTele.getChat(Redis:get(spider..'spider:ChanneliD:Join'))
 local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
 local ban = LuaTele.getUser(Message_Reply.sender.user_id)
@@ -4287,7 +4269,7 @@ if ChannelJoin(msg) == false then
 local Get_Chat = LuaTele.getChat(Redis:get(spider..'spider:ChanneliD:Join'))
 local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local Message_Reply = LuaTele.getMessage(msg.chat_id, msg.reply_to_message_id)
 local ban = LuaTele.getUser(Message_Reply.sender.user_id)
@@ -5120,7 +5102,7 @@ if not Redis:get(spider.."spider:Status:distraction1"..msg_chat_id) then return 
 Abs = math.random(4,2824); 
 local Text ='‹ : تم اختيار المقطع الصوتي لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Song'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Song'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -5130,7 +5112,7 @@ if not Redis:get(spider.."spider:Status:distraction2"..msg_chat_id) then return 
 Abs = math.random(4,1075); 
 local Text ='‹ : تم اختيار المتحركه لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/animation'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/animation'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -5140,7 +5122,7 @@ if not Redis:get(spider.."spider:Status:distraction3"..msg_chat_id) then return 
 Abs = math.random(4,140); 
 local Text ='‹ : تم اختيار الشعر لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/voice'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/voice'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -5151,7 +5133,7 @@ if not Redis:get(spider.."spider:Status:distraction9"..msg_chat_id) then return 
 Abs = math.random(4,1201); 
 local Text ='‹ : تم اختيار الميمز لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Memz'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Memz'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -5162,7 +5144,7 @@ if not Redis:get(spider.."spider:Status:distraction8"..msg_chat_id) then return 
 Abs = math.random(4,612); 
 local Text ='‹ : تم اختيار ريمكس لك'
 keyboardd = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Remix'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Remix'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -5173,7 +5155,7 @@ if not Redis:get(spider.."spider:Status:distraction4"..msg_chat_id) then return 
 Abs = math.random(4,125); 
 local Text ='‹ : تم اختيار الفلم لك'
 keyboardd = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Movies'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Movies'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -5184,7 +5166,7 @@ if not Redis:get(spider.."spider:Status:distraction7"..msg_chat_id) then return 
 Abs = math.random(4,1002); 
 local Text ='‹ : تم اختيار الانمي لك'
 keyboardd = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Anime'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Anime'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -5195,7 +5177,7 @@ if not Redis:get(spider.."spider:Status:distraction6"..msg_chat_id) then return 
 Abs = math.random(4,1167); 
 local Text ='‹ : تم اختيار الاغنيه لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Mp'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Mp'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -5206,7 +5188,7 @@ if not Redis:get(spider.."spider:Status:distraction5"..msg_chat_id) then return 
 Abs = math.random(4,1171); 
 local Text ='‹ : تم اختيار الصوره لك'
 keyboardd = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Photos'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Photos'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -5217,7 +5199,7 @@ if not Redis:get(spider.."spider:Status:distraction10"..msg_chat_id) then return
 Abs = math.random(4,54); 
 local Text ='‹ : تم اختيار المسلسل لك'
 keyboardd = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Series'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = msg.sender.user_id..'/Series'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}
 }
 }
 local msg_id = msg.id/2097152/0.5
@@ -7024,7 +7006,7 @@ local protectionGroup = '\n*‹ : اعدادات حمايه المجموعة ↫
 ..'\n‹ : الحظر - الطرد ↫ '..StatusBanId
 ..'\n‹ : الالعاب ↫ '..StatusGames
 ..'\n‹ : امر اطردني ↫ '..Statuskickme..'*\n\n'
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id,protectionGroup,'md', false, false, false, false, reply_markup) end
 if text == "الاعدادات" then    
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n‹ : هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -7973,7 +7955,7 @@ local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً ل�
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local R = Redis:scard(spider.."spider1:List:Rd:Sudo"..msg.chat_id)
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ حذف الردود : '..R..' ›', data = msg.sender.user_id..'/RdLaR'},{text = '‹ عرض الردود : '..R..' ›', data = msg.sender.user_id..'/Rdlar'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ حذف الردود : '..R..' ›', data = msg.sender.user_id..'/RdLaR'},{text = '‹ عرض الردود : '..R..' ›', data = msg.sender.user_id..'/Rdlar'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, "‹ : من خلال الازرار يمكن عرض وحذف الردود ↫ ⤈", 'md', false, false, false, false, reply_markup) end
 --
 if text == ("ردود المدير") or text == ("مسح ردود المدير") or text == ("حذف ردود المدير") then
@@ -7985,7 +7967,7 @@ local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً ل�
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local R = Redis:scard(spider.."spider:List:Manager"..msg_chat_id.."")
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ حذف الردود : '..R..' ›', data = msg.sender.user_id..'/RD'},{text = '‹ عرض الردود : '..R..' ›', data = msg.sender.user_id..'/RRD'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ حذف الردود : '..R..' ›', data = msg.sender.user_id..'/RD'},{text = '‹ عرض الردود : '..R..' ›', data = msg.sender.user_id..'/RRD'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, "‹ : من خلال الازرار يمكن عرض وحذف الردود ↫ ⤈", 'md', false, false, false, false, reply_markup) end
 -- Lar --
 if text == "اضف رد" then
@@ -8022,7 +8004,7 @@ local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً ل�
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local R = Redis:scard(spider.."spider11:List:Rd:Sudo")
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ حذف الردود : '..R..' ›', data = msg.sender.user_id..'/RSoLaR'},{text = '‹ عرض الردود : '..R..' ›', data = msg.sender.user_id..'/RSolar'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ حذف الردود : '..R..' ›', data = msg.sender.user_id..'/RSoLaR'},{text = '‹ عرض الردود : '..R..' ›', data = msg.sender.user_id..'/RSolar'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, "‹ : من خلال الازرار يمكن عرض وحذف الردود ↫ ⤈", 'md', false, false, false, false, reply_markup) end
 --
 if text == ("ردود المطور") or text == ("مسح الردود العامه") or text == ("حذف الردود العامه") then 
@@ -8035,7 +8017,7 @@ local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً ل�
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local R = Redis:scard(spider.."spider:List:Rd:Sudo")
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ حذف الردود : '..R..' ›', data = msg.sender.user_id..'/RDs'},{text = '‹ عرض الردود : '..R..' ›', data = msg.sender.user_id..'/RRDs'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ حذف الردود : '..R..' ›', data = msg.sender.user_id..'/RDs'},{text = '‹ عرض الردود : '..R..' ›', data = msg.sender.user_id..'/RRDs'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, "‹ : من خلال الازرار يمكن عرض وحذف الردود ↫ ⤈", 'md', false, false, false, false, reply_markup) end
 --
 if text == ("اوامر التسليه") then 
@@ -8046,7 +8028,7 @@ local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً ل�
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local R = Redis:scard(spider.."spider:List:Rd:Sudo")
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ غنيلي ›', data = msg.sender.user_id..'/Song'},},{{text = '‹ شعر ›', data = msg.sender.user_id..'/voice'},{text = '‹ اغنيه ›', data = msg.sender.user_id..'/Mp'},},{{text = '‹ ميمز ›', data = msg.sender.user_id..'/Memz'},{text = '‹ ريمكس ›', data = msg.sender.user_id..'/Remix'},},{{text = '‹ انمي ›', data = msg.sender.user_id..'/Anime'},{text = '‹ صوره ›', data = msg.sender.user_id..'/Photos'},},{{text = '‹ مسلسل ›', data = msg.sender.user_id..'/Series'},{text = '‹ فلم ›', data = msg.sender.user_id..'/Movies'},},{{text = '‹ متحركه ›', data = msg.sender.user_id..'/animation'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ غنيلي ›', data = msg.sender.user_id..'/Song'},},{{text = '‹ شعر ›', data = msg.sender.user_id..'/voice'},{text = '‹ اغنيه ›', data = msg.sender.user_id..'/Mp'},},{{text = '‹ ميمز ›', data = msg.sender.user_id..'/Memz'},{text = '‹ ريمكس ›', data = msg.sender.user_id..'/Remix'},},{{text = '‹ انمي ›', data = msg.sender.user_id..'/Anime'},{text = '‹ صوره ›', data = msg.sender.user_id..'/Photos'},},{{text = '‹ مسلسل ›', data = msg.sender.user_id..'/Series'},{text = '‹ فلم ›', data = msg.sender.user_id..'/Movies'},},{{text = '‹ متحركه ›', data = msg.sender.user_id..'/animation'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id, msg_id, "‹ : يمكنك اختيار أحد اوامر التسليه ↫ ⤈", 'md', false, false, false, false, reply_markup) end
 -- Lar --
 if text == "اضف رد للكل" or text == "اضف رد عام" then 
@@ -8463,30 +8445,30 @@ end
 else
 return LuaTele.sendText(msg_chat_id,msg_id,'*‹ : امر صورتي معطل*',"md",true)  end end
 if text == "بوت الزخرفه" or text == "اريد بوت زخرفه" or text == "بوت زخرفه" or text == "بوت الزغرفه" or text == "اريد بوت زغرفه" or text == "بوت زغرفه" then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ اضغط هنا ›', url = 't.me/CAAPbot'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ اضغط هنا ›', url = 't.me/Y3i_Bot'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'*‹ : اضغط للحصول على بوت الزخرفه*',"md",false, false, false, false, reply_markup) end
 if text == "بوت كت تويت" or text == "بوت الكت" or text == "بوت كت" then
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ اضغط هنا ›', url = 't.me/UY4bot'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'*‹ : اضغط للحصول على بوت الكت*',"md",false, false, false, false, reply_markup) end
-if text == "اهمس" or text == "بوت همسه" or text == "بوت الهمسه" or text == "همسه" or text == "اريد همسه" or text == "همسولي" or text == "اهمسلي" then return LuaTele.sendText(msg_chat_id,msg_id,'\n*‹ : @Ykxbot *',"md",true)  end
+if text == "اهمس" or text == "بوت همسه" or text == "بوت الهمسه" or text == "همسه" or text == "اريد همسه" or text == "همسولي" or text == "اهمسلي" then return LuaTele.sendText(msg_chat_id,msg_id,'\n*‹ : @EooHBoT *',"md",true)  end
 if text == 'رابط الحذف' or text == 'بوت الحذف' or text == 'بوت حذف' or text == 'رابط حذف' then
 local tt =[[
 ‹ : Deletion link in all social media .
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ Delete Bot ›', url = "https://t.me/R3J3BOT"}},{{text = '‹ Telegram', url = "https://my.telegram.org/auth?to=delete"},{text = 'Instagram ›', url = "https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"}},{{text = '‹ Facebook', url = "https://www.facebook.com/help/deleteaccount"},{text = 'Snapchat ›', url = "https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = "https://t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ Delete Bot ›', url = "https://t.me/R3J3BOT"}},{{text = '‹ Telegram', url = "https://my.telegram.org/auth?to=delete"},{text = 'Instagram ›', url = "https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"}},{{text = '‹ Facebook', url = "https://www.facebook.com/help/deleteaccount"},{text = 'Snapchat ›', url = "https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = "https://t.me/Vc33h"}}}
 local msgg = msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/R3J3BOT&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
-photo = "https://t.me/Rasulm12/42"
 local tt =[[
-Welcome To Source
-‹ : [𝖲𝗈𝗎𝗋𝖼𝖾 spider](https://t.me/ivviv) .
+┌───────  ───────┐
+⋄︙*𝘸𝘦𝘭𝘤𝘰𝘮𝘦 𝘵𝘰 𝘴𝘰𝘶𝘳𝘤𝘦 𝑺𝑷𝑰𝑫𝑬𝑹*
+└───────  ───────┘
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ Source Channel ›', url = "https://t.me/ivviv"}},{{text = '‹ Developer', url = "https://t.me/NNUUU"},{text = 'Tws spider ›', url = "https://t.me/aaeqoBOT"}},{{text = '‹ تـفآصيل. ›', url = "https://t.me/OO66R"}}}
+keyboard.inline_keyboard = {{{text = '‹ Source Channel ›', url = "https://t.me/Vc33h"}},{{text = '‹ Developer', url = "https://t.me/NNUUU"},{text = 'Tws spider ›', url = "https://t.me/S_H_Wbot"}}}
 local msgg = msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/ivviv&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
+https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo=https://t.me/Vc33h&caption=".. URL.escape(tt).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) end
 if text == 'الاوامر' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n‹ : هذا الامر للادمنية واعلى فقط',"md",true)  end
 if ChannelJoin(msg) == false then
@@ -8495,7 +8477,7 @@ local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = msg.sender.user_id..'/help1'}, {text = ' اوامر الادمنيه', data = msg.sender.user_id..'/help2'},},{{text = 'اوامر المدراء', data = msg.sender.user_id..'/help3'}, {text = 'اوامر المنشئين', data = msg.sender.user_id..'/help4'},},{{text = 'اوامر المطورين', data = msg.sender.user_id..'/help5'}, {text = 'العاب البوت', data = msg.sender.user_id..'/help6'},},{{text = 'القفل والفتح', data = msg.sender.user_id..'/NoNextSeting'}, {text = 'التفعيل والتعطيل', data = msg.sender.user_id..'/listallAddorrem'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = msg.sender.user_id..'/help1'}, {text = ' اوامر الادمنيه', data = msg.sender.user_id..'/help2'},},{{text = 'اوامر المدراء', data = msg.sender.user_id..'/help3'}, {text = 'اوامر المنشئين', data = msg.sender.user_id..'/help4'},},{{text = 'اوامر المطورين', data = msg.sender.user_id..'/help5'}, {text = 'العاب البوت', data = msg.sender.user_id..'/help6'},},{{text = 'القفل والفتح', data = msg.sender.user_id..'/NoNextSeting'}, {text = 'التفعيل والتعطيل', data = msg.sender.user_id..'/listallAddorrem'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id, [[*
 ‹ : اهلا بك في قائمة الاوامر ↫ ⤈
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -8514,7 +8496,7 @@ local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ مسح الاساسين ›', data = msg.sender.user_id..'/TheBasics'},},{{text = '‹ مسح المنشئين ›', data = msg.sender.user_id..'/Originators'},{text = '‹ مسح المدراء ›', data = msg.sender.user_id..'/Managers'},},{{text = '‹ مسح الادمنيه ›', data = msg.sender.user_id..'/Addictive'},{text = '‹ مسح المميزين ›', data = msg.sender.user_id..'/DelDistinguished'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ مسح الاساسين ›', data = msg.sender.user_id..'/TheBasics'},},{{text = '‹ مسح المنشئين ›', data = msg.sender.user_id..'/Originators'},{text = '‹ مسح المدراء ›', data = msg.sender.user_id..'/Managers'},},{{text = '‹ مسح الادمنيه ›', data = msg.sender.user_id..'/Addictive'},{text = '‹ مسح المميزين ›', data = msg.sender.user_id..'/DelDistinguished'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'‹ : هلا بك في قسم رتب المجموعة',"md",false, false, false, false, reply_markup)
 -- LaR --
 elseif text == 'عرض الرتب' then
@@ -8530,7 +8512,7 @@ local LL = Redis:scard(spider.."spider:Originators:Group"..msg_chat_id)
 local LLL = Redis:scard(spider.."spider:Managers:Group"..msg_chat_id)
 local LLLL = Redis:scard(spider.."spider:Addictive:Group"..msg_chat_id)  
 local LLLLL = Redis:scard(spider.."spider:Distinguished:Group"..msg_chat_id)
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ الاساسيين : '..L..' ›', data = msg.sender.user_id..'/TheBasicslar'},},{{text = '‹ المنشئين : '..LL..' ›', data = msg.sender.user_id..'/Originatorslar'},{text = '‹ المدراء : '..LLL..' ›', data = msg.sender.user_id..'/Managerslar'},},{{text = '‹ الادمنيه : '..LLLL..' ›', data = msg.sender.user_id..'/Addictivelar'},{text = '‹ المميزين : '..LLLLL..' ›', data = msg.sender.user_id..'/DelDistinguishedlar'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ الاساسيين : '..L..' ›', data = msg.sender.user_id..'/TheBasicslar'},},{{text = '‹ المنشئين : '..LL..' ›', data = msg.sender.user_id..'/Originatorslar'},{text = '‹ المدراء : '..LLL..' ›', data = msg.sender.user_id..'/Managerslar'},},{{text = '‹ الادمنيه : '..LLLL..' ›', data = msg.sender.user_id..'/Addictivelar'},{text = '‹ المميزين : '..LLLLL..' ›', data = msg.sender.user_id..'/DelDistinguishedlar'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'‹ : هلا بك في قسم رتب المجموعة',"md",false, false, false, false, reply_markup)
 --
 elseif text == 'مسح رسائلي' or text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
@@ -8542,7 +8524,7 @@ local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, u
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
 local LaR = (Redis:get(spider..'spider:Num:Message:Edit'..msg.chat_id..msg.sender.user_id) or 0)
 local lar = (Redis:get(spider..'spider:Num:Message:User'..msg.chat_id..':'..msg.sender.user_id) or 0)
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ مسح سحكاتي : '..LaR..' ›', data = msg.sender.user_id..'/MsgDell'},{text = '‹ مسح رسائلي : '..lar..' ›', data = msg.sender.user_id..'/MMsgDel'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ مسح سحكاتي : '..LaR..' ›', data = msg.sender.user_id..'/MsgDell'},{text = '‹ مسح رسائلي : '..lar..' ›', data = msg.sender.user_id..'/MMsgDel'},},{{text = '‹ اخفاء الاوامر ›', data =msg.sender.user_id..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'‹ : من خلال الازرار يمكنك مسح رسائلك وسحكاتك',"md",false, false, false, false, reply_markup)
 -- LaR --
 elseif text == 'م1' then
@@ -8553,7 +8535,7 @@ local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help1'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'‹ : عليك استخدام اوامر التحكم بالقوائم',"md",false, false, false, false, reply_markup)
 elseif text == 'م2' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n‹ : هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8563,7 +8545,7 @@ local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help2'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help2'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'‹ : عليك استخدام اوامر التحكم بالقوائم',"md",false, false, false, false, reply_markup)
 elseif text == 'م3' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n‹ : هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8573,7 +8555,7 @@ local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help3'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help3'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'‹ : عليك استخدام اوامر التحكم بالقوائم',"md",false, false, false, false, reply_markup)
 elseif text == 'م4' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n‹ : هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8583,7 +8565,7 @@ local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help4'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help4'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'‹ : عليك استخدام اوامر التحكم بالقوائم',"md",false, false, false, false, reply_markup)
 elseif text == 'م5' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n‹ : هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8593,7 +8575,7 @@ local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help5'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help5'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'‹ : عليك استخدام اوامر التحكم بالقوائم',"md",false, false, false, false, reply_markup)
 elseif text == 'الالعاب' then
 if not msg.Addictive then return LuaTele.sendText(msg_chat_id,msg_id,'\n‹ : هذا الامر للادمنية واعلى فقط',"md",true)  end
@@ -8603,7 +8585,7 @@ local NcH = (Redis:get(spider.."spider:CH:Bot") or Get_Chat.title)
 local NcHlink = (Redis:get(spider.."spider:CHlink:Bot") or "‹ : عذراً لاتستطيع استخدام البوت !\n‹ : عليك الاشتراك في القناة اولاً :")
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = NcH, url = 't.me/'..Redis:get(spider..'spider:Channel:Join')},},}}
 return LuaTele.sendText(msg.chat_id,msg.id,NcHlink,"md",false, false, false, false, reply_markup) end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help6'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ قائمة الاوامر ›', data = msg.sender.user_id..'/help6'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,'‹ : عليك استخدام اوامر التحكم بالقوائم',"md",false, false, false, false, reply_markup) end
 if text == 'تحديث' or text == 'تحديث السورس' then
 if not msg.DevelopersAS then 
@@ -8709,7 +8691,7 @@ else
 return LuaTele.sendText(msg_chat_id,msg_id,'*‹ : العدد الكلي ‹ '..#list..' › للمجموعات \n‹ : لا توجد مجموعات وهميه*',"md") end end
 if text == "سمايلات" or text == "سمايل" then
 if Redis:get(spider.."spider:Status:Games"..msg.chat_id) then
-Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","🥐","🍞","🥨","🍟","🧀","??","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","??","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","🎫","🎗","🏵","🎖","🏆","🥌","🛷","🚗","??","🏎","🚓","🚑","🚚","🚛","🚜","⚔","🛡","🔮","🌡","💣","᥀","📍","📓","📗","📂","📅","📪","📫","᥀","📭","⏰","??","🎚","☎️","📡"}
+Random = {"🍏","🍎","🍐","🍊","🍋","🍉","🍇","🍓","🍈","🍒","🍑","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥒","🌶","🌽","🥕","🥔","🥖","🥐","🍞","🥨","🍟","🧀","??","🍳","🥓","🥩","🍗","🍖","🌭","🍔","🍠","🍕","🥪","🥙","☕️","??","🍶","🍺","🍻","🏀","⚽️","🏈","⚾️","🎾","🏐","🏉","🎱","🏓","🏸","🥅","🎰","🎮","🎳","🎯","🎲","🎻","🎸","🎺","🥁","🎹","🎼","🎧","🎤","🎬","🎨","🎭","🎪","🎟","🎫","🎗","🏵","🎖","🏆","🥌","🛷","🚗","??","🏎","🚓","🚑","🚚","🚛","🚜","⚔","🛡","🔮","🌡","💣","᥀","📍","📓","📗","📂","📅","📪","📫","᥀","📭","⏰","📺","🎚","☎️","📡"}
 SM = Random[math.random(#Random)]
 Redis:set(spider.."spider:Game:Smile"..msg.chat_id,SM)
 return LuaTele.sendText(msg_chat_id,msg_id,"‹ : اسرع واحد يدز هذا السمايل ? ~ {`"..SM.."`}","md",true) end end
@@ -9371,10 +9353,10 @@ Redis:sadd(spider..'spider:Num:User:Pv',msg.sender.user_id)
 if not msg.DevelopersAS then
 if not Redis:get(spider.."spider:Start:Bot") then
 local CmdStart = '‹ : مرحبا انا بوت اسمي ‹ '..(Redis:get(spider.."spider:Name:Bot") or "سبايدر")..' ›\n‹ : اختصاصي التسليه وحماية المجموعات\n‹ : من المخربين والتفليش والسبام والخ\n‹ : فقط قم برفعي ادمن في مجموعتك\n‹ : وارسل كلمة ↫ ‹ تفعيل ›'
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ المطور ›', url = "t.me/"..UserSudo..""},},{{text = '‹ قناة السورس ›', url = 't.me/ivviv'},{text = '‹ لتنصيب بوت ›', url = 't.me/NNUUU'},},{{text = '‹ اضفني الى مجموعتك ›', url = 't.me/'..UserBot..'?startgroup=new'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ المطور ›', url = "t.me/"..UserSudo..""},},{{text = '‹ قناة السورس ›', url = 't.me/Vc33h'},{text = '‹ لتنصيب بوت ›', url = 't.me/NNUUU'},},{{text = '‹ اضفني الى مجموعتك ›', url = 't.me/'..UserBot..'?startgroup=new'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,CmdStart,"md",false, false, false, false, reply_markup)
 else
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ المطور ›', url = "t.me/"..UserSudo..""},},{{text = '‹ قناة السورس ›', url = 't.me/ivviv'},{text = '‹ لتنصيب بوت ›', url = 't.me/NNUUU'},},{{text = '‹ اضفني الى مجموعتك ›', url = 't.me/'..UserBot..'?startgroup=new'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ المطور ›', url = "t.me/"..UserSudo..""},},{{text = '‹ قناة السورس ›', url = 't.me/Vc33h'},{text = '‹ لتنصيب بوت ›', url = 't.me/NNUUU'},},{{text = '‹ اضفني الى مجموعتك ›', url = 't.me/'..UserBot..'?startgroup=new'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id,Redis:get(spider.."spider:Start:Bot"),"md",false, false, false, false, reply_markup) end
 else
 local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹  السورس  ›',type = 'text'},{text = '‹  اسم البوت  ›', type = 'text'},},{{text = '‹  المطورين  ›',type = 'text'},{text = '‹  الاحصائيات  ›',type = 'text'},},{{text = '‹  الاذاعة  ›',type = 'text'},{text = '‹  العام  ›', type = 'text'},},{{text = '‹  الاشتراك الاجباري  ›',type = 'text'},{text = '‹  التفعيل والتعطيل  ›',type = 'text'},},{{text = '‹  ردود الخاص  ›',type = 'text'},},}}
@@ -9387,7 +9369,7 @@ return LuaTele.sendText(msg_chat_id,msg_id, LaR, 'md', false, false, false, fals
 if text == '‹  السورس  ›' and msg.DevelopersAS then
 Redis:sadd(spider..'spider:Num:User:Pv',msg.sender.user_id)  
 local LaR = '‹ : اهلا بك في قسم ‹ السورس ›\n‹ : اضغط على الامر الذي تريد تنفيذه'
-local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ تحديث الملفات ›',type = 'text'},{text = '‹ تحديث السورس ›', type = 'text'},},{{text = '‹ مبرمج السورس ›', type = 'text'},},{{text = '‹ تحديثات السورس ›',type = 'text'},{text = '‹ قناة السورس ›',type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'keyboard',resize = true,is_personal = true, data = {{{text = '‹ تحديث الملفات ›',type = 'text'},{text = '‹ تحديث السورس ›', type = 'text'},},{{text = '‹ مبرمج السورس ›', type = 'text'},},{{text = '‹ رجوع ›',type = 'text'},},}}
 return LuaTele.sendText(msg_chat_id,msg_id, LaR, 'md', false, false, false, false, reply_markup) end
 if text == '‹  اسم البوت  ›' and msg.DevelopersAS then
 Redis:sadd(spider..'spider:Num:User:Pv',msg.sender.user_id)  
@@ -10145,7 +10127,7 @@ local UserId = Text:match('(%d+)/UpdateSo')
 if tonumber(IdUser) == tonumber(UserId) then 
 local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ رجوع ›', data =UserId..'/'.. 'UpdateBack'},},}}
 os.execute('rm -rf spider.lua')
-download('https://raw.githubusercontent.com/DevspiderTeAm/spider/master/spider.lua','spider.lua')
+download('https://raw.githubusercontent.com/spiderxr/spider/main/spider.lua','spider.lua')
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
 return LuaTele.editMessageText(ChatId,Msg_id, '*‹ : تم تحديث السورس*', 'md',true, false, reply_markup) end end
 --
@@ -10193,7 +10175,7 @@ if not Redis:get(spider.."spider:Status:distraction1"..data.chat_id) then return
 Abs = math.random(4,2824); 
 local Text ='‹ : تم اختيار المقطع الصوتي لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Song'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Song'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
  https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ChatId .. '&voice=https://t.me/AudiosDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 --
@@ -10204,7 +10186,7 @@ if not Redis:get(spider.."spider:Status:distraction2"..data.chat_id) then return
 Abs = math.random(4,1075); 
 local Text ='‹ : تم اختيار المتحركه لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'animation'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'animation'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
  https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. ChatId .. '&animation=https://t.me/GifDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 --
@@ -10215,7 +10197,7 @@ if not Redis:get(spider.."spider:Status:distraction3"..data.chat_id) then return
 Abs = math.random(4,140); 
 local Text ='‹ : تم اختيار الشعر لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'voice'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'voice'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
  https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ChatId .. '&voice=https://t.me/L1BBBL/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 --
@@ -10226,7 +10208,7 @@ if not Redis:get(spider.."spider:Status:distraction4"..data.chat_id) then return
 Abs = math.random(4,1201); 
 local Text ='‹ : تم اختيار الميمز لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Memz'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Memz'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
  https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ChatId .. '&voice=https://t.me/MemzDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 --
@@ -10237,7 +10219,7 @@ if not Redis:get(spider.."spider:Status:distraction5"..data.chat_id) then return
 Abs = math.random(4,612); 
 local Text ='‹ : تم اختيار الريمكس لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Remix'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Remix'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
  https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. ChatId .. '&voice=https://t.me/RemixDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 --
@@ -10248,7 +10230,7 @@ if not Redis:get(spider.."spider:Status:distraction6"..data.chat_id) then return
 Abs = math.random(4,125); 
 local Text ='‹ : تم اختيار الفلم لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Movies'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Movies'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
  https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/MoviesDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 --
@@ -10259,7 +10241,7 @@ if not Redis:get(spider.."spider:Status:distraction7"..data.chat_id) then return
 Abs = math.random(4,1002); 
 local Text ='‹ : تم اختيار الانمي لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Anime'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Anime'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
  https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/AnimeDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 --
@@ -10270,7 +10252,7 @@ if not Redis:get(spider.."spider:Status:distraction8"..data.chat_id) then return
 Abs = math.random(4,1167); 
 local Text ='‹ : تم اختيار الاغنيه لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Mp'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Mp'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
  https.request("https://api.telegram.org/bot"..Token..'/sendAudio?chat_id=' .. ChatId .. '&audio=https://t.me/DavidMp3/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 --
@@ -10281,7 +10263,7 @@ if not Redis:get(spider.."spider:Status:distraction9"..data.chat_id) then return
 Abs = math.random(4,1171); 
 local Text ='‹ : تم اختيار الصوره لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Photos'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Photos'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
  https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/PhotosDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end
 --
@@ -10292,7 +10274,7 @@ if not Redis:get(spider.."spider:Status:distraction10"..data.chat_id) then retur
 Abs = math.random(4,54); 
 local Text ='‹ : تم اختيار المسلسل لك'
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Series'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/ivviv"}}}
+keyboard.inline_keyboard = {{{text = '‹ مره اخرى ›', callback_data = IdUser..'/'.. 'Series'}},{{text='‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›',url="t.me/Vc33h"}}}
 local msg_id = Msg_id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. ChatId .. '&photo=https://t.me/SeriesDavid/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_prsjeview=true&reply_markup="..JSON.encode(keyboard)) end end
 -- LaR
@@ -10774,7 +10756,7 @@ if Info_Members.members[k].status.luatele == "chatMemberStatusCreator" then
 Redis:sadd(spider.."spider:TheBas:Group"..data.chat_id,v.member_id.user_id) 
 x = x + 1 end end
 end
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ رفع الادمنيه ›', data = UserId..'/'.. 'addAdmins@'..data.chat_id},{text = '‹ تفعيل الحمايه ›', data = UserId..'/'.. 'LockAllGroup@'..data.chat_id},},{{text = '‹ الاوامر ›', data = UserId..'/'.. 'helpall'},},{{text = '‹ غادر ›', data = UserId..'/'..'Yesbot'},{text = '‹ تعطيل ›', data = UserId..'/'..'disable'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ رفع الادمنيه ›', data = UserId..'/'.. 'addAdmins@'..data.chat_id},{text = '‹ تفعيل الحمايه ›', data = UserId..'/'.. 'LockAllGroup@'..data.chat_id},},{{text = '‹ الاوامر ›', data = UserId..'/'.. 'helpall'},},{{text = '‹ غادر ›', data = UserId..'/'..'Yesbot'},{text = '‹ تعطيل ›', data = UserId..'/'..'disable'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 Redis:sadd(spider.."spider:ChekBotAdd",data.chat_id)
 Redis:set(spider.."spider:Status:Id"..data.chat_id,true) ;Redis:set(spider.."spider:Status:Reply"..data.chat_id,true) ;Redis:set(spider.."spider:Status:ReplySudo"..data.chat_id,true) ;Redis:set(spider.."spider:Status:BanId"..data.chat_id,true) ;Redis:set(spider.."spider:Status:SetId"..data.chat_id,true) 
 return LuaTele.sendText(ChatId,Msg_id,'*‹ : تم اعادة تفعيل المجموعة ↫ ‹ *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* ›*','md', true, false, false, false, reply_markup) end end 
@@ -10787,7 +10769,7 @@ local Get_Chat = LuaTele.getChat(data.chat_id)
 local Info_Chats = LuaTele.getSupergroupFullInfo(data.chat_id)
 if not Redis:sismember(spider.."spider:ChekBotAdd",data.chat_id) then return LuaTele.editMessageText(ChatId,Msg_id, '\n‹ : المجموعة تم تعطيلها بالتأكيد',"md",true)  
 else
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ غادر ›', data = UserId..'/'..'Yesbot'},{text = '‹ تفعيل ›', data = UserId..'/'..'activation'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ غادر ›', data = UserId..'/'..'Yesbot'},{text = '‹ تفعيل ›', data = UserId..'/'..'activation'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 Redis:srem(spider.."spider:ChekBotAdd",data.chat_id)
 return LuaTele.sendText(ChatId,Msg_id,'*‹ : تم تعطيل المجموعة ↫ ‹ *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* ›*','md',true, false, false, false, reply_markup) end end
 end
@@ -10831,7 +10813,7 @@ return LuaTele.editMessageText(ChatId,Msg_id,TextMahibesAgane, 'md', true, false
 if Text and Text:match('(%d+)/help1') then
 local UserId = Text:match('(%d+)/help1')
 if tonumber(IdUser) == tonumber(UserId) then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 local TextHelp = [[*
 ‹ : اوامر الحمايه الخاصه بالمجموعة ↫ ⤈
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -10870,7 +10852,7 @@ LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 elseif Text and Text:match('(%d+)/help2') then
 local UserId = Text:match('(%d+)/help2')
 if tonumber(IdUser) == tonumber(UserId) then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 local TextHelp = [[*
 ‹ : اوامر ادمنية ↫ ⤈
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -10908,7 +10890,7 @@ LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 elseif Text and Text:match('(%d+)/help3') then
 local UserId = Text:match('(%d+)/help3')
 if tonumber(IdUser) == tonumber(UserId) then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 local TextHelp = [[*
 ‹ : اوامر المدراء ↫ ⤈
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -10940,7 +10922,7 @@ LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 elseif Text and Text:match('(%d+)/help4') then
 local UserId = Text:match('(%d+)/help4')
 if tonumber(IdUser) == tonumber(UserId) then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 local TextHelp = [[*
 ‹ : اوامر المنشئ الاساسي ↫ ⤈
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -10960,7 +10942,7 @@ LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 elseif Text and Text:match('(%d+)/help5') then
 local UserId = Text:match('(%d+)/help5')
 if tonumber(IdUser) == tonumber(UserId) then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'العاب البوت', data = IdUser..'/help6'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 local TextHelp = [[*
 ‹ : اوامر المطور الاساسي ↫ ⤈
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -10991,7 +10973,7 @@ LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 elseif Text and Text:match('(%d+)/help6') then
 local UserId = Text:match('(%d+)/help6')
 if tonumber(IdUser) == tonumber(UserId) then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'},},{{text = '‹ القائمه الرئيسيه › ', data = IdUser..'/helpall'},},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 local TextHelp = [[*
 ‹ : قائمه الالعاب البوت ↫ ⤈
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -11012,7 +10994,7 @@ LuaTele.editMessageText(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
 elseif Text and Text:match('(%d+)/helpall') then
 local UserId = Text:match('(%d+)/helpall')
 if tonumber(IdUser) == tonumber(UserId) then
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = 'القفل والفتح', data = IdUser..'/NoNextSeting'}, {text = 'التفعيل والتعطيل', data = IdUser..'/listallAddorrem'},},{{text = '‹ اخفاء الاوامر ›', data =IdUser..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = 'اوامر الحمايه', data = IdUser..'/help1'}, {text = 'اوامر الادمنيه', data = IdUser..'/help2'},},{{text = 'اوامر المدراء', data = IdUser..'/help3'}, {text = 'اوامر المنشئين', data = IdUser..'/help4'},},{{text = 'اوامر المطورين', data = IdUser..'/help5'}, {text = 'العاب البوت', data = IdUser..'/help6'},},{{text = 'القفل والفتح', data = IdUser..'/NoNextSeting'}, {text = 'التفعيل والتعطيل', data = IdUser..'/listallAddorrem'},},{{text = '‹ اخفاء الاوامر ›', data =IdUser..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 local TextHelp = [[*
 ‹ : اهلا بك في قائمة الاوامر ↫ ⤈
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -11920,7 +11902,7 @@ if tonumber(IdUser) == tonumber(UserId) then
 local LaR = (Redis:get(spider..'spider:Num:Message:Edit'..data.chat_id..UserId) or 0)
 local lar = (Redis:get(spider..'spider:Num:Message:User'..data.chat_id..':'..UserId) or 0)
 local Text = "\n‹ : من خلال الازرار يمكنك مسح رسائلك وسحكاتك"
-local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ مسح سحكاتي : '..LaR..' ›', data =IdUser..'/'.. 'MsgDell'},{text = '‹ مسح رسائلي : '..lar..' ›', data =IdUser..'/'.. 'MMsgDel'},},{{text = '‹ اخفاء الاوامر ›', data =IdUser..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/ivviv'},},}}
+local reply_markup = LuaTele.replyMarkup{type = 'inline',data = {{{text = '‹ مسح سحكاتي : '..LaR..' ›', data =IdUser..'/'.. 'MsgDell'},{text = '‹ مسح رسائلي : '..lar..' ›', data =IdUser..'/'.. 'MMsgDel'},},{{text = '‹ اخفاء الاوامر ›', data =IdUser..'/'.. 'delAmr'}},{{text = '‹ 𝖲𝗈𝗎𝗋𝖼𝖾 spider ›', url = 't.me/Vc33h'},},}}
 LuaTele.editMessageText(ChatId,Msg_id,Text, 'md', false, false, reply_markup) end end 
 -- LaR
 if Text and Text:match('(%d+)/delAmr') then
