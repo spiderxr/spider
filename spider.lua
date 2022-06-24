@@ -15511,22 +15511,19 @@ if Redis:get(spider.."name bot type : ") == "photo" then
     }
     }
     
-    if photo.total_count > 0 then
-      local NamesBot = (Redis:get(spider.."Name:Bot") or "بلاك")
+if photo.total_count > 0 then
+local NamesBot = (Redis:get(spider.."Name:Bot") or "بلاك")
 local BotName = {"ها ها يمعود اسمي صاخم "..NamesBot,"اسمي القميل "..NamesBot.. "","ياخي دفضها شتريد كل شوي صحتو بوت ؟","هـا حبي ويـاك القميل ","شوكت اخلص منكم خنكتوني 😮‍💨","هـفاينزيبي كول اني يمك 🌚 ","تره اسمي صخام "..NamesBot.. " ليش تكول بوت عندي اسم وصيح بي كافي تعبت😤","اسمي الحـات "..NamesBot.. "",}
-    return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,BotName[math.random(#BotName)], "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup )
-    else
-      local NamesBot = (Redis:get(spider.."Name:Bot") or "بلاك")
-      local BotName = {
+return LuaTele.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,BotName[math.random(#BotName)], "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup )
+else
+local NamesBot = (Redis:get(spider.."Name:Bot") or "بلاك")
 local BotName = {"ها ها يمعود اسمي صاخم "..NamesBot,"اسمي القميل "..NamesBot.. "","ياخي دفضها شتريد كل شوي صحتو بوت ؟","هـا حبي ويـاك القميل ","شوكت اخلص منكم خنكتوني 😮‍💨","هـفاينزيبي كول اني يمك 🌚 ","تره اسمي صخام "..NamesBot.. " ليش تكول بوت عندي اسم وصيح بي كافي تعبت😤","اسمي الحـات "..NamesBot.. "",}
-    return send(msg_chat_id,msg_id,BotName[math.random(#BotName)],"md") 
-    end 
-    end
-          local NamesBot = (Redis:get(spider.."Name:Bot") or "بلاك")
-      local BotName = {
+return send(msg_chat_id,msg_id,BotName[math.random(#BotName)],"md") 
+end 
+end
+local NamesBot = (Redis:get(spider.."Name:Bot") or "بلاك")
 local BotName = {"ها ها يمعود اسمي صاخم "..NamesBot,"اسمي القميل "..NamesBot.. "","ياخي دفضها شتريد كل شوي صحتو بوت ؟","هـا حبي ويـاك القميل ","شوكت اخلص منكم خنكتوني 😮‍💨","هـفاينزيبي كول اني يمك 🌚 ","تره اسمي صخام "..NamesBot.. " ليش تكول بوت عندي اسم وصيح بي كافي تعبت😤","اسمي الحـات "..NamesBot.. "",}
-    return send(msg_chat_id,msg_id,BotName[math.random(#BotName)],"md") 
-
+return send(msg_chat_id,msg_id,BotName[math.random(#BotName)],"md") 
   end
   ----
 if text == 'تنظيف المشتركين' then
@@ -17962,7 +17959,7 @@ data = {
 }
 }
 local TextHelp = [[*
-- 𝑆𝐸𝑁𝐷 𝑇𝐻𝐸 𝑁𝐴𝑀𝐸 𝑂𝐹 𝑊𝐻𝐴𝑇 𝑌𝑂𝑈 𝑊𝐴𝑁𝑇 𝑇𝑂 𝐷𝑂𝑊𝑁𝐿𝑂𝐴𝐷 𝐴𝑁𝐷 𝑇𝐻𝐸 𝐵𝑂𝑇 𝑊𝐼𝐿𝐿 𝑆𝐸𝑁𝐷 𝐼𝑇 𝑇𝑂 𝑌𝑂𝑈 𝐻𝐸𝑅𝐸 .
+- 𝑆𝐸𝑁𝐷 𝑇𝐻𝐸 𝑁𝐴𝑀𝐸 𝑂𝐹 𝑊𝐻𝐴𝑇 𝑌𝑂𝑈 𝑊𝐴𝑁𝑇 𝑇𝑂 𝐷𝑂𝑊??𝐿𝑂𝐴𝐷 𝐴𝑁𝐷 𝑇𝐻𝐸 𝐵𝑂𝑇 𝑊𝐼𝐿𝐿 𝑆𝐸𝑁𝐷 𝐼𝑇 𝑇𝑂 𝑌𝑂𝑈 𝐻𝐸𝑅𝐸 .
 *]]
 Redis:set(spider.."youtube"..IdUser..ChatId,'mp4')
 edit(ChatId,Msg_id,TextHelp, 'md', true, false, reply_markup)
