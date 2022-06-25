@@ -1411,6 +1411,24 @@ local BotName = {
 }
 return LuaTele.sendText(msg_chat_id,msg_id,BotName[math.random(#BotName)],"md",true)   
 end
+if text == '‹ السيرفر ›' or text == 'السيرفر' then 
+if not msg.ControllerBot then 
+return LuaTele.sendText(msg_chat_id,msg_id,'\n*᥀︙هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
+end
+return LuaTele.sendText(msg.chat_id, msg.id,io.popen([[
+linux_version=`lsb_release -ds`
+memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
+HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
+CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"يومًا,",h+0,"ساعات,",m+0,"دقيقة."}'`
+echo '*᥀︙نظام التشغيل : ›*\n`'"$linux_version"'`' 
+echo '*— — — — — — — — — — —*\n*᥀︙الذاكره العشوائيه : ›*\n`'"$memUsedPrc"'`'
+echo '*— — — — — — — — — — —*\n*᥀︙وحدة التخزين : ›*\n`'"$HardDisk"'`'
+echo '*— — — — — — — — — — —*\n*᥀︙المعالج : ›*\n`'"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'`'
+echo '*— — — — — — — — — — —*\n*᥀︙الدخول : ›*\n`'`whoami`'`'
+echo '*— — — — — — — — — — —*\n*᥀︙مدة تشغيل السيرفر : › *  `'"$uptime"'`'
+]]):read('*a'),'md')
+end 
 if text == 'تعطيل الاذاعة' or text == '‹ تعطيل الاذاعة ›' then
 if not msg.DevelopersAS then 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n‹ : هذا الامر للمطور الاساسي واعلى فقط',"md",true)  end
