@@ -24884,8 +24884,6 @@ send(msg_chat_id,msg_id,Reply_Status(Info_User,'⌔︙تم ارسال رسالت
 end
 end
 end 
-end --UserBot
-end -- File_Bot_Run
 
 
 function CallBackLua(data) --- هذا الكالباك بي الابديت 
