@@ -24532,26 +24532,6 @@ send(msg_chat_id,msg_id,"⌔︙ارسل لي التوجيه الان\n⌔︙ ل�
 return false
 end
 
-if text == "محمد" then
-  local UserInfo = bot.getUser( 833156404 ) 
-  local photo = bot.getUserProfilePhotos(UserInfo.id)
-  local ANUBIS = {
-      "معاك الحج انوبيس للسياحه",
-      "ايوا معاك انوبيس اهوو",
-      "يارب تكون بتجيب سيرتي بالخير",
-      "استر يارب هولي شيت"
-  }
-  if photo.total_count > 0 then
-  local reply_markup = bot.replyMarkup{type = 'inline',data = {
-      {
-        {text = UserInfo.first_name , url = 't.me/'..UserInfo.username }
-      },
-    }
-    }
-  return bot.sendPhoto(msg.chat_id, msg.id, photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id,"\n ـ• — — — — — — — — — •ـ\n"..ANUBIS[math.random(#ANUBIS)].."\n ـ• — — — — — — — — — •ـ"  , "md", true, nil, nil, nil, nil, nil, nil, nil, nil, reply_markup )
-  end
-  end
-
 if text=='اذاعه بالتوجيه خاص ☆' then 
 if not msg.Asasy then 
 return send(msg_chat_id,msg_id,'\n*⌔︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
