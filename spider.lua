@@ -28885,7 +28885,6 @@ data = {
 }
 edit(ChatId,Msg_id,"⌔︙تم مسح مطورين الاساسيين", "md",true, false, reply_markup)
 end
-
 elseif Text and Text:match('(%d+)/Ownerss') and data.Dev then
 local UserId = Text:match('(%d+)/Ownerss')
 if tonumber(IdUser) == tonumber(UserId) then
